@@ -1,0 +1,691 @@
+/* General */
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+    box-sizing: border-box;
+}
+
+/* Navbar */
+header {
+    background: #692929;
+    color: white;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: #000000;
+}
+
+.logonav {
+    width: 6%;
+}
+
+/* Hero básico */
+.hero {
+    position: relative;
+    height: 45vh; /* Reduce la altura al 50% de la altura de la ventana */
+    max-height: 500px; /* Limita la altura máxima */
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+    background-color: #000; /* Fondo temporal */
+}
+
+/* Configuración de las imágenes */
+.hero img {
+    position: absolute;
+    width: 100%; /* Las imágenes llenan el ancho */
+    height: 100%; /* Las imágenes llenan el alto */
+    object-fit: cover; /* Evita distorsiones y ajusta el tamaño */
+    opacity: 0; /* Oculta las imágenes no activas */
+    z-index: 0; /* Coloca las imágenes detrás del overlay */
+    filter: brightness(50%); /* Oscurece ligeramente para resaltar el texto */
+    transition: opacity 1s ease-in-out, filter 1s ease-in-out; /* Transición suave */
+}
+
+/* Imagen activa */
+.hero img.active {
+    opacity: 1; /* La imagen activa se muestra completamente */
+    z-index: 1; /* Coloca la imagen activa al frente */
+    filter: brightness(70%); /* Ilumina ligeramente la imagen activa */
+}
+
+/* Overlay para el texto */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    z-index: 2; /* Asegura que el texto esté sobre las imágenes */
+    padding: 0 20px; /* Espaciado en los laterales */
+}
+
+/* Estilo del título */
+.hero-overlay h1 {
+    font-size: 2.5rem; /* Reduce el tamaño del título */
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Sombra más fuerte para legibilidad */
+    animation: fadeIn 1.5s ease-in-out; /* Animación de entrada */
+}
+
+/* Estilo del subtítulo */
+.hero-overlay p {
+    font-size: 1.2rem; /* Reduce el tamaño del subtítulo */
+    margin-top: 10px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Sombra más suave */
+    animation: fadeIn 2s ease-in-out; /* Animación de entrada más lenta */
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.cta-button {
+    padding: 10px 20px;
+    background: #000000;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+    background: #000000;
+    transform: scale(1.05);
+}
+
+/* Categorías Populares */
+.titlecat{
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.categorias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.categoria-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.categoria-card img {
+    width: 80%;
+    height: 300px;
+    object-fit: cover;
+    filter: blur(5px);
+    transition: transform 0.2s, filter 0.3s;
+}
+
+.categoria-card h3 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 1.5rem;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.categoria-card:hover img {
+    transform: scale(1.1);
+    filter: blur(2px);
+}
+
+/* General container for buttons */
+.botones-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+/* Button styles */
+.btn-efecto {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none; /* Elimina el subrayado */
+    background: linear-gradient(90deg, #39393a, #25282b);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    text-align: center;
+}
+
+/* Hover effect: Change background and scale */
+.btn-efecto:hover {
+    background: linear-gradient(90deg, #692929, #68251c);
+    transform: scale(1.1);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Border animation */
+.btn-efecto::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    transform: scale(1.2);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.btn-efecto:hover::before {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.btn-eliminar {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-eliminar:hover {
+    background-color: #b02a37;
+}
+
+
+/* Estilo de las secciones */
+.seccion {
+    text-align: center;
+    padding: 25px;
+    margin: 25px 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 2rem; 
+}
+
+/* Productos */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+}
+
+/* General styles for the card */
+.producto {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    width: 400px;
+    margin: 1px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    position: relative; /* Ensures the hover effect applies correctly */
+    overflow: hidden;
+}
+
+.producto:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+/* Image styles */
+.image-container {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+}
+
+.img-pro {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.producto .initial-image {
+    opacity: 1;
+}
+
+.producto .hover-image {
+    opacity: 0;
+}
+
+.producto:hover .initial-image {
+    opacity: 0;
+}
+
+.producto:hover .hover-image {
+    opacity: 1;
+}
+
+/* Text styles */
+.producto h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.producto .precio {
+    font-size: 1.2rem;
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Dropdown and input styles */
+.opciones {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.opciones label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.opciones select,
+.opciones input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Button styles */
+.agregar-carrito {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.agregar-carrito:hover {
+    background-color: #0056b3;
+}
+
+.totalc{
+    font-size: 2.5rem;
+}
+
+/* Estilo del Footer */
+footer {
+    background-color: #692929;
+    color: #fff;
+    padding: 30px 20px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #000000;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.social-icons a img:hover {
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    color: #aaa;
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+}
+
+.footer-bottom p a {
+    color: #000000;
+    text-decoration: none;
+}
+.mainc {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.h1c {
+    text-align: center;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+#lista-carrito {
+    list-style: none;
+    padding: 0;
+}
+
+#lista-carrito li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#lista-carrito li:last-child {
+    border-bottom: none;
+}
+
+.carrito-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2em;
+    margin-top: 20px;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+}
+
+.carrito-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background: #dc3545;
+}
+
+.btn-danger:hover {
+    background: #b02a37;
+}
+
+
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) { /* Tablets */
+    .hero {
+        height: 50vh; /* Ajustar altura para tablets */
+    }
+
+    .hero img {
+        width: 90%;
+        height: 90%;
+        margin: auto;
+    }
+
+    .categorias-grid {
+        grid-template-columns: 1fr 1fr; /* Dos columnas en tablets */
+        gap: 15px;
+    }
+
+    .categoria-card img {
+        height: 200px; /* Reducir altura de imágenes */
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+}
+
+@media screen and (max-width: 768px) { /* Celulares */
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centra todos los elementos horizontalmente */
+        padding: 10px;
+    }
+    nav ul {
+        flex-direction: row;
+        flex-wrap: wrap; /* Cambiar a menú vertical */
+        align-items: center;
+        padding: 10px;
+    }
+
+    #logoce{
+        display: none;
+    }
+
+    .logonav{
+        width: 30%;
+    }
+
+    .hero {
+        height: 40vh; /* Reducir aún más la altura */
+    }
+
+    .hero img {
+        width: 80%;
+        height: 80%;
+        margin: auto;
+    }
+
+    .hero-overlay {
+        padding: 0 10px;
+    }
+
+    .hero-overlay h1 {
+        font-size: 2rem;
+    }
+
+    .hero-overlay p {
+        font-size: 1rem;
+    }
+
+    .categoria-card img {
+        width: 100%; /* Ajusta el ancho al contenedor */
+        height: auto; /* Mantiene las proporciones de la imagen */
+        max-width: 150px; /* Limita el tamaño máximo de las imágenes */
+        margin: 0 auto; /* Centra las imágenes */
+        display: block; /* Asegura que estén bien alineadas */
+    }
+
+    .categoria-card {
+        text-align: center; /* Centra el texto y las imágenes */
+        padding: 10px; /* Reduce el padding */
+    }
+
+    .categoria-card h3,
+    .categoria-card p {
+        font-size: 1rem; /* Reduce el tamaño del texto */
+    }
+
+    .categoria-card .precio {
+        font-size: 1.2rem; /* Ajusta el precio a un tamaño más pequeño */
+    }
+
+    .categoria-card .color {
+        font-size: 0.9rem; /* Ajusta el tamaño del texto para opciones */
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+    }
+    
+    .seccion{
+        padding: 2px;
+    }
+
+    h2{
+        font-size: 2rem;
+    }
+    .producto {
+        text-align: center;
+        margin: 10px auto;
+        width: 90%; /* Asegura que todo el producto se ajusta al ancho del contenedor */
+    }
+
+    .image-container {
+        width: 90%; /* Ajusta el tamaño del contenedor de la imagen */
+        margin: 0 auto; /* Centra la imagen horizontalmente */
+    }
+
+    .img-pro {
+        width: 100%; /* Hace que la imagen ocupe el 100% del contenedor */
+        height: auto; /* Mantiene la proporción de la imagen */
+        object-fit: contain; /* Evita el recorte de la imagen */
+    }
+    .social-icons{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* General grid container */
+.categorias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}

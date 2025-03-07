@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/main.js" defer></script>
+    <link rel="shortcut icon" href="../logo-removebg-preview.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css?v=1.0"> <script src="js/script.js?v=1.0"></script> 
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="../logo-removebg-preview.png" alt="logo" class="logonav">
+
+            <ul>
+                <li><a href="../index.html" id="logoce">INICIO</a></li>
+                <li><a href="lentes-sol.html">LENTES DE SOL</a></li>
+                <li><a href="lentes-receta.html">LENTES DE RECETA</a></li>
+                <li><a href="lentes-clipon.html">LENTES CLIPON</a></li>
+                <li class="carrito"><a href="carrito.html" class="active">🛒 <span id="contador-carrito">0</span></a></li>
+            </ul>
+            <img src="../logo-removebg-preview.png" alt="logo" class="logonav" id="logoce">
+            
+        </nav>
+    </header>
+
+    <main class="mainc">
+        <h1 class="h1c">Carrito de Compras</h1>
+        <ul id="lista-carrito"></ul>
+        <div class="carrito-total">
+            <span class="totalc"> <strong>Total:</strong> </span>
+            <span class="totalc" id="precio-total"><strong>$0.00</strong></span>
+        </div>
+        <div class="carrito-actions">
+            <button id="finalizar-compra" class="btn">Finalizar Compra</button>
+            <button id="vaciar-carrito" class="btn btn-danger">Vaciar Carrito</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="lentes-sol.html">Lentes de Sol</a></li>
+                    <li><a href="lentes-receta.html">Lentes de Receta</a></li>
+                    <li><a href="lentes-clipon.html">Lentes Clipon</a></li>
+                    <li><a href="carrito.html">Carrito</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>Email: lenteslatigo@gmail.com</p>
+                <p>Teléfono: +54 11 1234 5678</p>
+
+            </div>
+            <div class="footer-section">
+                <h3>Nuestras Redes Sociales</h3>
+                <div class="social-icons">
+                    <div style="display: flex; gap: 15px;; padding: 15px;">
+                        <a href="https://wa.me/1164747827" target="_blank" style="color: white; text-decoration: none;">
+                            <i class="fab fa-whatsapp" style="font-size: 30px;"></i>
+                        </a>
+                        <a href="https://www.instagram.com/lenteslatigo?igsh=bXoxNDVzcXoxZzM0" target="_blank" style="color: white; text-decoration: none;">
+                        <i class="fab fa-instagram" style="font-size: 30px"></i>
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank" style="color: white; text-decoration: none;">
+                            <i class="fab fa-facebook" style="font-size: 30px;"></i>
+                        </a>
+                        <a href="https://www.tiktok.com" target="_blank" style="color: white; text-decoration: none;">
+                            <i class="fab fa-tiktok" style="font-size: 30px;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Lentes Latigo. Todos los derechos reservados.</p>
+            <p>Diseñado por Thiago Vitelli</p>
+        </div>
+    </footer>
+</body>
+</html>
