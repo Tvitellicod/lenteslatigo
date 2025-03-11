@@ -574,6 +574,11 @@ footer {
 }
 
 @media screen and (max-width: 768px) { /* Celulares */
+
+    #logosoloc{
+        width: 30%|;
+    }
+
     nav {
         display: flex;
         flex-direction: column;
