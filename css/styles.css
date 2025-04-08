@@ -545,12 +545,6 @@ footer {
     background: #b02a37;
 }
 
-#logosoloc{
-    display: none;
-}
-
-
-
 /* Responsive Design */
 @media screen and (max-width: 1024px) { /* Tablets */
     .hero {
@@ -596,7 +590,7 @@ footer {
         display: none;
     }
 
-    .logonav{
+    #celu{
         width: 30%;
     }
 
@@ -605,8 +599,8 @@ footer {
     }
 
     .hero img {
-        width: 80%;
-        height: 80%;
+        width: 100%;
+        height: 100%;
         margin: auto;
     }
 
