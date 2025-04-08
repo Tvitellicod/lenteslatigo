@@ -545,6 +545,10 @@ footer {
     background: #b02a37;
 }
 
+#logosoloc{
+    display: none;
+}
+
 
 
 /* Responsive Design */
@@ -574,10 +578,6 @@ footer {
 }
 
 @media screen and (max-width: 768px) { /* Celulares */
-
-    #logosoloc{
-        width: 30%|;
-    }
 
     nav {
         display: flex;
