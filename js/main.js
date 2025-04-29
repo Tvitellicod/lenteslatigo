@@ -166,9 +166,10 @@ function finalizarCompra() {
     const mensajeCompleto = `Hola! Quiero finalizar la compra de mi pedido de:\n${mensaje}\n\nTotal: $${total.toFixed(2)}`;
 
     // Crear la URL de WhatsApp con el mensaje completo
-    const url = `https://api.whatsapp.com/send?phone=+5491164747827&text=${encodeURIComponent(mensajeCompleto)}`;
+    const url = `https://api.whatsapp.com/send?phone=+5491168265282&text=${encodeURIComponent(mensajeCompleto)}`;
 
     // Abrir WhatsApp y vaciar el carrito
     window.open(url, "_blank");
     vaciarCarrito();
 }
+ 
